@@ -1,0 +1,38 @@
+packages/build.txt
+  h_c872c6f1ba48bc 16
+ports/custom/custom-opt/libsdl/.footprint
+  h_c872c6f1ba48bc 1-226
+ports/custom/custom-opt/libsdl/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/libsdl/CVE-2019-13616.patch
+  h_c872c6f1ba48bc 1-19
+ports/custom/custom-opt/libsdl/CVE-2019-7572.patch
+  h_c872c6f1ba48bc 1-270
+ports/custom/custom-opt/libsdl/CVE-2019-7635.patch
+  h_c872c6f1ba48bc 1-55
+ports/custom/custom-opt/libsdl/CVE-2019-7636.patch
+  h_c872c6f1ba48bc 1-41
+ports/custom/custom-opt/libsdl/CVE-2019-7637.patch
+  h_c872c6f1ba48bc 1-171
+ports/custom/custom-opt/libsdl/CVE-2022-34568.patch
+  h_c872c6f1ba48bc 1-17
+ports/custom/custom-opt/libsdl/Pkgfile
+  h_c872c6f1ba48bc 1-36
+ports/custom/custom-opt/libsdl/README
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/libsdl/libsdl-1.2.15-bs.patch
+  h_c872c6f1ba48bc 1-12
+ports/custom/custom-opt/libsdl/libsdl-1.2.x-libx11.patch
+  h_c872c6f1ba48bc 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d410efe0e88ce8997d8ff4b778334913c04df590",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
