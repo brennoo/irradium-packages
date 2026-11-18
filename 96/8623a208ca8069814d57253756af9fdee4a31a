@@ -1,0 +1,48 @@
+packages/build.txt
+  h_c872c6f1ba48bc 18
+ports/custom/custom-opt/ffmpeg/.footprint
+  h_c872c6f1ba48bc 1-228
+ports/custom/custom-opt/ffmpeg/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/ffmpeg/CVE-2026-107675.patch
+  h_c872c6f1ba48bc 1-90
+ports/custom/custom-opt/ffmpeg/CVE-2026-107676.patch
+  h_c872c6f1ba48bc 1-24
+ports/custom/custom-opt/ffmpeg/CVE-2026-107677.patch
+  h_c872c6f1ba48bc 1-35
+ports/custom/custom-opt/ffmpeg/CVE-2026-107678.patch
+  h_c872c6f1ba48bc 1-280
+ports/custom/custom-opt/ffmpeg/CVE-2026-107696.patch
+  h_c872c6f1ba48bc 1-27
+ports/custom/custom-opt/ffmpeg/CVE-2026-120210.patch
+  h_c872c6f1ba48bc 1-283
+ports/custom/custom-opt/ffmpeg/CVE-2026-120243.patch
+  h_c872c6f1ba48bc 1-46
+ports/custom/custom-opt/ffmpeg/CVE-2026-120244.patch
+  h_c872c6f1ba48bc 1-18
+ports/custom/custom-opt/ffmpeg/CVE-2026-120245.patch
+  h_c872c6f1ba48bc 1-30
+ports/custom/custom-opt/ffmpeg/CVE-2026-120246.patch
+  h_c872c6f1ba48bc 1-115
+ports/custom/custom-opt/ffmpeg/CVE-2026-120247.patch
+  h_c872c6f1ba48bc 1-68
+ports/custom/custom-opt/ffmpeg/Pkgfile
+  h_c872c6f1ba48bc 1-126
+ports/custom/custom-opt/ffmpeg/add-av_stream_get_first_dts-for-chromium.patch
+  h_c872c6f1ba48bc 1-31
+ports/custom/custom-opt/ffmpeg/add-in-cpu-__NR_riscv_hwprobe.patch
+  h_c872c6f1ba48bc 1-11
+ports/custom/custom-opt/ffmpeg/ffmpeg-x264-10bit.sh
+  h_c872c6f1ba48bc 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "968623a208ca8069814d57253756af9fdee4a31a",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
