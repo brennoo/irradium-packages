@@ -1,0 +1,14 @@
+builder/pkgtool/container.py
+  h_c872c6f1ba48bc 610-629,639,647-661,663,665-675,680-690,704-716,728-747,758-772,823-828,838-849,969-971,979,985
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "268c8c0d6adff9f02e6c0a545ecfaa9472bf0614",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
