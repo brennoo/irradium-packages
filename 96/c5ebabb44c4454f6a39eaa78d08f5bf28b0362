@@ -1,0 +1,92 @@
+builder/vex/glibc.json
+  h_c872c6f1ba48bc 2-10,32,34-36,41,43-45
+builder/vulntool/override.py
+  h_c872c6f1ba48bc 160-161,420-421,423,486-488
+packages/build.txt
+  h_c872c6f1ba48bc 14
+ports/custom/custom-core/glibc/.footprint.aarch64
+  h_c872c6f1ba48bc 1-2492
+ports/custom/custom-core/glibc/.footprint.riscv64
+  h_c872c6f1ba48bc 1-2488
+ports/custom/custom-core/glibc/.nostrip
+  h_c872c6f1ba48bc 1-2
+ports/custom/custom-core/glibc/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-core/glibc/CVE-2025-15281.patch
+  h_c872c6f1ba48bc 1-150
+ports/custom/custom-core/glibc/CVE-2026-0861.patch
+  h_c872c6f1ba48bc 1-61
+ports/custom/custom-core/glibc/CVE-2026-0915.patch
+  h_c872c6f1ba48bc 1-40
+ports/custom/custom-core/glibc/CVE-2026-18374.patch
+  h_c872c6f1ba48bc 1-105
+ports/custom/custom-core/glibc/CVE-2026-19499.patch
+  h_c872c6f1ba48bc 1-75
+ports/custom/custom-core/glibc/CVE-2026-19542.patch
+  h_c872c6f1ba48bc 1-79
+ports/custom/custom-core/glibc/CVE-2026-4046.patch
+  h_c872c6f1ba48bc 1-296
+ports/custom/custom-core/glibc/CVE-2026-4437.patch
+  h_c872c6f1ba48bc 1-211
+ports/custom/custom-core/glibc/CVE-2026-4438.patch
+  h_c872c6f1ba48bc 1-296
+ports/custom/custom-core/glibc/CVE-2026-5435.patch
+  h_c872c6f1ba48bc 1-275
+ports/custom/custom-core/glibc/CVE-2026-5450.patch
+  h_c872c6f1ba48bc 1-741
+ports/custom/custom-core/glibc/CVE-2026-5928.patch
+  h_c872c6f1ba48bc 1-88
+ports/custom/custom-core/glibc/CVE-2026-6238.patch
+  h_c872c6f1ba48bc 1-387
+ports/custom/custom-core/glibc/CVE-2026-6368.patch
+  h_c872c6f1ba48bc 1-526
+ports/custom/custom-core/glibc/CVE-2026-6791.patch
+  h_c872c6f1ba48bc 1-326
+ports/custom/custom-core/glibc/CVE-2026-77117.patch
+  h_c872c6f1ba48bc 1-15
+ports/custom/custom-core/glibc/CVE-2026-80489.patch
+  h_c872c6f1ba48bc 1-168
+ports/custom/custom-core/glibc/CVE-2026-84243.patch
+  h_c872c6f1ba48bc 1-145
+ports/custom/custom-core/glibc/CVE-2026-8674.patch
+  h_c872c6f1ba48bc 1-84
+ports/custom/custom-core/glibc/CVE-2026-86805.patch
+  h_c872c6f1ba48bc 1-908
+ports/custom/custom-core/glibc/CVE-2026-89092.patch
+  h_c872c6f1ba48bc 1-223
+ports/custom/custom-core/glibc/CVE-2026-97399.patch
+  h_c872c6f1ba48bc 1-89
+ports/custom/custom-core/glibc/Pkgfile
+  h_c872c6f1ba48bc 1-108
+ports/custom/custom-core/glibc/glibc-2.39-fhs-1.patch
+  h_c872c6f1ba48bc 1-77
+ports/custom/custom-core/glibc/glibc-2.40-2.patch
+  h_c872c6f1ba48bc 1-46861
+ports/custom/custom-core/glibc/host.conf
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-core/glibc/hosts
+  h_c872c6f1ba48bc 1-17
+ports/custom/custom-core/glibc/ld.so.conf
+  h_c872c6f1ba48bc 1-7
+ports/custom/custom-core/glibc/locale-gen
+  h_c872c6f1ba48bc 1-50
+ports/custom/custom-core/glibc/locale.gen.in
+  h_c872c6f1ba48bc 1-22
+ports/custom/custom-core/glibc/nsswitch.conf
+  h_c872c6f1ba48bc 1-24
+ports/custom/custom-core/glibc/post-install
+  h_c872c6f1ba48bc 1-4
+ports/custom/custom-core/glibc/resolv.conf
+  h_c872c6f1ba48bc 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "96c5ebabb44c4454f6a39eaa78d08f5bf28b0362",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
