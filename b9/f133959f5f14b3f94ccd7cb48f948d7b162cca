@@ -1,0 +1,30 @@
+packages/build.txt
+  h_c872c6f1ba48bc 12
+ports/custom/custom-contrib/firefox/.footprint.aarch64
+  h_c872c6f1ba48bc 1-50
+ports/custom/custom-contrib/firefox/.footprint.riscv64
+  h_c872c6f1ba48bc 1-49
+ports/custom/custom-contrib/firefox/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-contrib/firefox/Pkgfile
+  h_c872c6f1ba48bc 1-172
+ports/custom/custom-contrib/firefox/README
+  h_c872c6f1ba48bc 1-2
+ports/custom/custom-contrib/firefox/firefox.desktop
+  h_c872c6f1ba48bc 1-13
+ports/custom/custom-contrib/firefox/fix-target-detection.patch
+  h_c872c6f1ba48bc 1-18
+ports/custom/custom-contrib/firefox/node-stdout-nonblocking-wrapper
+  h_c872c6f1ba48bc 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b9f133959f5f14b3f94ccd7cb48f948d7b162cca",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
