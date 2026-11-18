@@ -1,0 +1,38 @@
+packages/build.txt
+  h_c872c6f1ba48bc 15
+ports/custom/custom-contrib/libssh2/.footprint
+  h_c872c6f1ba48bc 1-201
+ports/custom/custom-contrib/libssh2/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-contrib/libssh2/CVE-2025-15661.patch
+  h_c872c6f1ba48bc 1-106
+ports/custom/custom-contrib/libssh2/CVE-2026-55199.patch
+  h_c872c6f1ba48bc 1-18
+ports/custom/custom-contrib/libssh2/CVE-2026-55200.patch
+  h_c872c6f1ba48bc 1-19
+ports/custom/custom-contrib/libssh2/CVE-2026-58051.patch
+  h_c872c6f1ba48bc 1-43
+ports/custom/custom-contrib/libssh2/CVE-2026-66032.patch
+  h_c872c6f1ba48bc 1-13
+ports/custom/custom-contrib/libssh2/CVE-2026-66033.patch
+  h_c872c6f1ba48bc 1-25
+ports/custom/custom-contrib/libssh2/CVE-2026-66034.patch
+  h_c872c6f1ba48bc 1-19
+ports/custom/custom-contrib/libssh2/CVE-2026-66035.patch
+  h_c872c6f1ba48bc 1-27
+ports/custom/custom-contrib/libssh2/CVE-2026-7598.patch
+  h_c872c6f1ba48bc 1-39
+ports/custom/custom-contrib/libssh2/Pkgfile
+  h_c872c6f1ba48bc 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "02a5802af04c628467e7a8239132c3354998f113",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
