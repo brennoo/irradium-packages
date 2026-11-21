@@ -96,7 +96,7 @@ def render_dir_index(
 </head>
 <body>
   <h1>Index of {html.escape(title_path)}</h1>
-  <div class="meta">Irradium Binary Package Mirror &middot; <a href="https://github.com/brennoo/irradium-builder">github.com/brennoo/irradium-builder</a></div>
+  <div class="meta">Irradium Binary Package Mirror &middot; <a href="https://github.com/brennoo/irradium-packages">github.com/brennoo/irradium-packages</a></div>
   <table>
     <thead>
       <tr><th align="left">Name</th><th align="left">Last modified</th><th align="right">Size</th></tr>

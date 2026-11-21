@@ -400,7 +400,7 @@ def build_openvex_document(
     return {
         "@context": "https://openvex.dev/ns/v0.2.0",
         "@id": "https://irradium.blackhole.com.br/vex/irradium-3.8",
-        "author": "irradium-builder",
+        "author": "irradium-packages",
         "timestamp": now_iso,
         "version": 1,
         "statements": ov_statements,
