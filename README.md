@@ -4,7 +4,7 @@
 [![Sync Upstream](https://github.com/brennoo/irradium-packages/actions/workflows/sync-submodules.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-packages/actions/workflows/sync-submodules.yml)
 [![Vulnerability Scan](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
 
-This repository aims to provide low-CVE packages, backporting security patches and [VEXing](vex/) triaged vulnerabilities.
+This repository aims to provide low-CVE packages, backporting security patches and [VEXing](builder/vex) triaged vulnerabilities.
 
 [![Critical](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-packages%2Fbadges%2Fvuln-critical.json)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
 [![High](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-packages%2Fbadges%2Fvuln-high.json)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
