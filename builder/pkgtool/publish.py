@@ -180,7 +180,15 @@ def publish_repo(
     # while uploading a differently-sized .pkg.tar.gz.
     for sig_path in pkgs_dir.rglob("*.sig"):
         if sig_path.is_file():
-            sig_path.touch()
+            try:
+                sig_path.touch()
+            except PermissionError:
+                try:
+                    data = sig_path.read_bytes()
+                    sig_path.unlink()
+                    sig_path.write_bytes(data)
+                except OSError:
+                    pass
     remote_pkgs = f"s3://{r2_bucket}/irradium/packages/"
     print(f"==> Syncing {pkgs_dir}/ to {remote_pkgs}...", flush=True)
 
