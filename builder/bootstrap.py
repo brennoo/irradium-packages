@@ -97,8 +97,9 @@ CORE_WANTED = {
     "prt-get", "ports", "signify", "httpup", "m4", "autoconf", "automake",
     "libtool", "bison", "flex", "gperf", "bc", "ed", "cpio", "which", "time",
     "procps", "psmisc", "shadow", "linux-pam", "libmd", "libbsd", "libffi",
-    "elfutils", "gettext", "perl", "gdbm", "libnsl", "libtirpc", "eudev",
+    "elfutils", "gettext", "perl", "gdbm", "db", "libnsl", "libtirpc", "eudev",
     "e2fsprogs", "kmod", "less", "jansson", "ninja", "rsync", "cmake",
+    "jsoncpp", "libuv", "rhash", "nasm", "groff", "libpipeline", "man-db",
     "python3", "python3-setuptools", "meson", "sqlite3", "mpdecimal"
 }
 
