@@ -1,4 +1,4 @@
-# Packages compiled from source by irradium-builder.
+# Packages compiled from source by irradium-packages.
 libb2
 git
 unbound

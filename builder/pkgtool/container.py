@@ -261,7 +261,7 @@ def _sync_upstream_targets(
             for suffix in ("index.html", ""):
                 url = f"{mirror_url}/{cat}/{suffix}"
                 try:
-                    req = urllib.request.Request(url, headers={"User-Agent": "irradium-builder/1.0"})
+                    req = urllib.request.Request(url, headers={"User-Agent": "irradium-packages/1.0"})
                     with urllib.request.urlopen(req, timeout=15, context=ssl_ctx) as r:
                         html = r.read().decode("utf-8", errors="replace")
                     items: set[str] = set()
@@ -444,7 +444,7 @@ def _source_pkgfile_meta(port_dir: pathlib.Path) -> tuple[str, str, str]:
 
 
 def _http_head_ok(url: str, ssl_ctx: ssl.SSLContext, timeout: float = 15.0) -> bool:
-    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "irradium-builder/1.0"})
+    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "irradium-packages/1.0"})
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ssl_ctx) as r:
             return r.status == 200
@@ -453,14 +453,14 @@ def _http_head_ok(url: str, ssl_ctx: ssl.SSLContext, timeout: float = 15.0) -> b
 
 
 def _download_file(url: str, dest: pathlib.Path, ssl_ctx: ssl.SSLContext, timeout: float = 120.0) -> None:
-    req = urllib.request.Request(url, headers={"User-Agent": "irradium-builder/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "irradium-packages/1.0"})
     with urllib.request.urlopen(req, timeout=timeout, context=ssl_ctx) as r, dest.open("wb") as f:
         shutil.copyfileobj(r, f)
 
 
 def _find_matching_pkg_in_html(url: str, pkg_name: str, ssl_ctx: ssl.SSLContext) -> str | None:
     """Fetch an HTML directory listing and return the newest matching href for `<pkg_name>#*.pkg.tar.gz`."""
-    req = urllib.request.Request(url, headers={"User-Agent": "irradium-builder/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "irradium-packages/1.0"})
     try:
         with urllib.request.urlopen(req, timeout=15, context=ssl_ctx) as r:
             if r.status != 200:

@@ -1,7 +1,7 @@
 #!/bin/sh
-# Bootstrap script for the irradium-builder binary mirror and custom-* ports.
+# Bootstrap script for the irradium-packages binary mirror and custom-* ports.
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/brennoo/irradium-builder/3.8/setup.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/brennoo/irradium-packages/3.8/setup.sh | sh
 
 set -eu
 
@@ -11,7 +11,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 BRANCH="${BRANCH:-3.8}"
-RAW_BASE="https://raw.githubusercontent.com/brennoo/irradium-builder/${BRANCH}"
+RAW_BASE="https://raw.githubusercontent.com/brennoo/irradium-packages/${BRANCH}"
 MIRROR_URL="https://irradium.blackhole.com.br/irradium/packages/ARCH/${BRANCH}"
 CUSTOM_COLLECTIONS="custom-core custom-opt custom-xorg custom-xfce custom-contrib"
 

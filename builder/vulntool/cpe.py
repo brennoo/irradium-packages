@@ -265,7 +265,7 @@ def _repology_get_cpes(pkg: str, refresh: bool = False) -> list[tuple[str, str]]
         req = urllib.request.Request(
             url,
             headers={
-                "User-Agent": "irradium-vulntool/1.0 (+https://github.com/brennoo/irradium-builder)",
+                "User-Agent": "irradium-vulntool/1.0 (+https://github.com/brennoo/irradium-packages)",
                 "Accept": "application/json",
             },
         )

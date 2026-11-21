@@ -153,13 +153,31 @@ jobs:
                   message: ($high | tostring),
                   color: (if $high > 0 then "orange" else "green" end)
                 }' /tmp/vuln-report.json > /tmp/vuln-badge-high.json
+            jq -c '
+              [.actionable[].severity | ascii_downcase] as $s
+              | ($s | map(select(. == "medium")) | length) as $med
+              | {
+                  schemaVersion: 1,
+                  label: "medium",
+                  message: ($med | tostring),
+                  color: (if $med > 0 then "yellow" else "green" end)
+                }' /tmp/vuln-report.json > /tmp/vuln-badge-medium.json
+            jq -c '
+              [.actionable[].severity | ascii_downcase] as $s
+              | ($s | map(select(. == "low")) | length) as $low
+              | {
+                  schemaVersion: 1,
+                  label: "low",
+                  message: ($low | tostring),
+                  color: (if $low > 0 then "blue" else "green" end)
+                }' /tmp/vuln-report.json > /tmp/vuln-badge-low.json
           fi
 
       - name: Publish badge JSON to badges branch
         if: always() && github.event_name != 'pull_request'
         run: |
           set -euo pipefail
-          if [[ ! -f /tmp/vuln-badge-critical.json || ! -f /tmp/vuln-badge-high.json ]]; then
+          if [[ ! -f /tmp/vuln-badge-critical.json || ! -f /tmp/vuln-badge-high.json || ! -f /tmp/vuln-badge-medium.json || ! -f /tmp/vuln-badge-low.json ]]; then
             echo "No badge JSON produced; skipping publish."
             exit 0
           fi
@@ -174,7 +192,9 @@ jobs:
           fi
           cp /tmp/vuln-badge-critical.json vuln-critical.json
           cp /tmp/vuln-badge-high.json vuln-high.json
-          git add vuln-critical.json vuln-high.json
+          cp /tmp/vuln-badge-medium.json vuln-medium.json
+          cp /tmp/vuln-badge-low.json vuln-low.json
+          git add vuln-critical.json vuln-high.json vuln-medium.json vuln-low.json
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
             commit -q -m "chore: update vulnerability badges" || { echo "No badge changes."; exit 0; }
           git push -q origin HEAD:badges

@@ -1,19 +1,24 @@
-# Irradium Binary Packages
+# Irradium Packages
 
-[![Build & Publish](https://github.com/brennoo/irradium-builder/actions/workflows/build-packages.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-builder/actions/workflows/build-packages.yml)
-[![Sync Upstream](https://github.com/brennoo/irradium-builder/actions/workflows/sync-submodules.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-builder/actions/workflows/sync-submodules.yml)
-[![Vulnerability Scan](https://github.com/brennoo/irradium-builder/actions/workflows/vuln-scan.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-builder/actions/workflows/vuln-scan.yml)
-[![Critical](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-builder%2Fbadges%2Fvuln-critical.json)](https://github.com/brennoo/irradium-builder/actions/workflows/vuln-scan.yml)
-[![High](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-builder%2Fbadges%2Fvuln-high.json)](https://github.com/brennoo/irradium-builder/actions/workflows/vuln-scan.yml)
+[![Build & Publish](https://github.com/brennoo/irradium-packages/actions/workflows/build-packages.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-packages/actions/workflows/build-packages.yml)
+[![Sync Upstream](https://github.com/brennoo/irradium-packages/actions/workflows/sync-submodules.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-packages/actions/workflows/sync-submodules.yml)
+[![Vulnerability Scan](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml/badge.svg?branch=3.8)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
 
-Pre-built binary packages for **[Irradium](https://irradium.org/) 3.8** - multi-arch but focused on riscv64.
+This repository aims to provide low-CVE packages, backporting security patches and [VEXing](vex/) triaged vulnerabilities.
+
+[![Critical](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-packages%2Fbadges%2Fvuln-critical.json)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
+[![High](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-packages%2Fbadges%2Fvuln-high.json)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
+[![Medium](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-packages%2Fbadges%2Fvuln-medium.json)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
+[![Low](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrennoo%2Firradium-packages%2Fbadges%2Fvuln-low.json)](https://github.com/brennoo/irradium-packages/actions/workflows/vuln-scan.yml)
+
+Pre-built binary packages for **[Irradium](https://irradium.org/) 3.8** - focused on `riscv64`.
 
 ## Setup on Your Device
 
 Run the bootstrap script as `root` on your **Irradium 3.8** system to install the signing key, configure the binary mirror, and enable/sync the `custom-*` port collections:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/brennoo/irradium-builder/3.8/setup.sh | sh
+curl -fsSL https://raw.githubusercontent.com/brennoo/irradium-packages/3.8/setup.sh | sh
 ```
 
 <details>
@@ -24,7 +29,7 @@ curl -fsSL https://raw.githubusercontent.com/brennoo/irradium-builder/3.8/setup.
 Fetch the public `signify` verification key directly from GitHub:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/brennoo/irradium-builder/3.8/keys/pkg-get.pub \
+curl -fsSL https://raw.githubusercontent.com/brennoo/irradium-packages/3.8/keys/pkg-get.pub \
   -o /etc/pkg-get/pkg-get.pub
 ```
 
@@ -46,7 +51,7 @@ for col in custom-core custom-opt custom-xfce custom-contrib; do
   cp /etc/pkg-get/pkg-get.pub /etc/ports/${col}.pub
   cat > /etc/ports/${col}.httpup << EOF
 ROOT_DIR=/usr/ports/${col}
-URL=https://raw.githubusercontent.com/brennoo/irradium-builder/3.8/ports/custom/${col}/
+URL=https://raw.githubusercontent.com/brennoo/irradium-packages/3.8/ports/custom/${col}/
 EOF
 done
 
@@ -85,7 +90,7 @@ Packages available on this mirror are tracked in two lists:
 * [`packages/build.txt`](packages/build.txt): Packages compiled from source by this repository (including custom ports and CVE-patched overrides under [`ports/custom/`](ports/custom)).
 * [`packages/upstream.txt`](packages/upstream.txt): Pre-built upstream Irradium packages verified and mirrored here so devices only need a single mirror and signing key.
 
-Need another package from the Irradium or CRUX port trees added to the binary mirror? Open a pull request adding it to [`packages/build.txt`](packages/build.txt) (or [`packages/upstream.txt`](packages/upstream.txt)) or open an issue.
+Need another package from the Irradium or CRUX port trees? Open a pull request adding it to either list, or open an issue.
 
 ---
 
@@ -95,12 +100,9 @@ You can build and test packages locally on Linux or macOS using Docker:
 
 ```bash
 # Clone the repository with upstream port submodules
-git clone --recurse-submodules https://github.com/brennoo/irradium-builder.git
-cd irradium-builder
+git clone --recurse-submodules https://github.com/brennoo/irradium-packages.git
+cd irradium-packages
 
 # Build a package (and any missing dependencies) for riscv64
 ./builder/build-pkg.sh <package>
-
-# Build for aarch64
-./builder/build-pkg.sh --arch aarch64 <package>
 ```
