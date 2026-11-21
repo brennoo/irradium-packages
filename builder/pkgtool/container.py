@@ -929,6 +929,25 @@ class ContainerBuilder:
         print(f"==> [BUILD] Built & signed: {category}/{pkg_file}", flush=True)
 
 
+def _fix_repo_ownership() -> None:
+    """Ensure all files/dirs created under /repo match the host mount directory's UID/GID."""
+    repo_root = pathlib.Path("/repo")
+    if not repo_root.is_dir():
+        return
+    try:
+        st = repo_root.stat()
+        uid, gid = st.st_uid, st.st_gid
+    except OSError:
+        return
+    if uid == 0 and gid == 0:
+        return
+    for p in repo_root.rglob("*"):
+        try:
+            os.lchown(p, uid, gid)
+        except OSError:
+            pass
+
+
 def run_in_container(raw_targets: list[str]) -> int:
     """Entry point for `python3 -m pkgtool _container-run ...` inside the builder container."""
     _setup_container_environment()
@@ -939,75 +958,78 @@ def run_in_container(raw_targets: list[str]) -> int:
     mirror_url = os.environ.get("MIRROR_URL", f"https://irradium.blackhole.com.br/irradium/packages/{arch}/{distr}")
     ssl_ctx = _create_ssl_context()
 
-    upstream_targets = [
-        t.split(":", 1)[1].rstrip("/")
-        for t in raw_targets
-        if t.startswith("upstream:")
-    ]
-    if upstream_targets:
-        rc = _sync_upstream_targets(
-            targets=upstream_targets,
+    try:
+        upstream_targets = [
+            t.split(":", 1)[1].rstrip("/")
+            for t in raw_targets
+            if t.startswith("upstream:")
+        ]
+        if upstream_targets:
+            rc = _sync_upstream_targets(
+                targets=upstream_targets,
+                arch=arch,
+                distr=distr,
+                skip_existing=skip_existing,
+                mirror_url=mirror_url,
+                ssl_ctx=ssl_ctx,
+            )
+            if rc != 0:
+                return rc
+
+        builder = ContainerBuilder(
             arch=arch,
             distr=distr,
             skip_existing=skip_existing,
             mirror_url=mirror_url,
             ssl_ctx=ssl_ctx,
         )
-        if rc != 0:
-            return rc
 
-    builder = ContainerBuilder(
-        arch=arch,
-        distr=distr,
-        skip_existing=skip_existing,
-        mirror_url=mirror_url,
-        ssl_ctx=ssl_ctx,
-    )
-
-    for item in raw_targets:
-        mode, _, rest = item.partition(":")
-        if mode == "upstream":
-            continue
-        target = (rest if rest else item).rstrip("/")
-        if not TARGET_NAME_RE.fullmatch(target):
-            print(f"ERROR: Invalid package or port target '{target}'", file=sys.stderr)
-            return 1
-
-        if "/" in target:
-            cand_usr = pathlib.Path(f"/usr/ports/{target}")
-            cand_mnt = pathlib.Path(f"/mnt/ports/{target}")
-            if (cand_usr / "Pkgfile").is_file():
-                port_path = cand_usr
-            elif (cand_mnt / "Pkgfile").is_file():
-                port_path = cand_mnt
-            else:
-                print(f"ERROR: Pkgfile not found for '{target}'", file=sys.stderr)
-                return 1
-            pkg_name = port_path.name
-        else:
-            pkg_name = target
-            resolved = _prt_get_path(pkg_name)
-            if resolved is None:
-                print(f"ERROR: Package '{pkg_name}' not found in any configured port tree", file=sys.stderr)
-                return 1
-            port_path = resolved
-
-        if builder.check_target_already_built(port_path):
-            continue
-
-        dep_pkgs = _prt_get_depends_uninstalled(pkg_name)
-        processed_target = False
-        for dep_pkg in dep_pkgs:
-            dep_path = _prt_get_path(dep_pkg)
-            if dep_path is None:
+        for item in raw_targets:
+            mode, _, rest = item.partition(":")
+            if mode == "upstream":
                 continue
-            if dep_pkg == pkg_name:
-                builder.build_single_port(dep_path, role="target", skip_check=True)
-                processed_target = True
+            target = (rest if rest else item).rstrip("/")
+            if not TARGET_NAME_RE.fullmatch(target):
+                print(f"ERROR: Invalid package or port target '{target}'", file=sys.stderr)
+                return 1
+
+            if "/" in target:
+                cand_usr = pathlib.Path(f"/usr/ports/{target}")
+                cand_mnt = pathlib.Path(f"/mnt/ports/{target}")
+                if (cand_usr / "Pkgfile").is_file():
+                    port_path = cand_usr
+                elif (cand_mnt / "Pkgfile").is_file():
+                    port_path = cand_mnt
+                else:
+                    print(f"ERROR: Pkgfile not found for '{target}'", file=sys.stderr)
+                    return 1
+                pkg_name = port_path.name
             else:
-                builder.build_single_port(dep_path, role="dep")
+                pkg_name = target
+                resolved = _prt_get_path(pkg_name)
+                if resolved is None:
+                    print(f"ERROR: Package '{pkg_name}' not found in any configured port tree", file=sys.stderr)
+                    return 1
+                port_path = resolved
 
-        if not processed_target:
-            builder.build_single_port(port_path, role="target", skip_check=True)
+            if builder.check_target_already_built(port_path):
+                continue
 
-    return 0
+            dep_pkgs = _prt_get_depends_uninstalled(pkg_name)
+            processed_target = False
+            for dep_pkg in dep_pkgs:
+                dep_path = _prt_get_path(dep_pkg)
+                if dep_path is None:
+                    continue
+                if dep_pkg == pkg_name:
+                    builder.build_single_port(dep_path, role="target", skip_check=True)
+                    processed_target = True
+                else:
+                    builder.build_single_port(dep_path, role="dep")
+
+            if not processed_target:
+                builder.build_single_port(port_path, role="target", skip_check=True)
+
+        return 0
+    finally:
+        _fix_repo_ownership()
