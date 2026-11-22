@@ -39,7 +39,7 @@ Set the binary mirror in `/etc/pkg-get/mirrors` (`pkg-get` automatically replace
 
 ```bash
 sed -i 's|^https://|# https://|' /etc/pkg-get/mirrors
-echo "https://irradium.blackhole.com.br/irradium/packages/ARCH/3.8" >> /etc/pkg-get/mirrors
+echo "https://pkg.irradium.com.br/irradium/packages/ARCH/3.8" >> /etc/pkg-get/mirrors
 ```
 
 ### 3. Enable Custom Port Collections (`custom-*`)

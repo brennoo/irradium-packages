@@ -12,7 +12,7 @@ fi
 
 BRANCH="${BRANCH:-3.8}"
 RAW_BASE="https://raw.githubusercontent.com/brennoo/irradium-packages/${BRANCH}"
-MIRROR_URL="https://irradium.blackhole.com.br/irradium/packages/ARCH/${BRANCH}"
+MIRROR_URL="https://pkg.irradium.com.br/irradium/packages/ARCH/${BRANCH}"
 CUSTOM_COLLECTIONS="custom-core custom-opt custom-xorg custom-xfce custom-contrib"
 
 CURRENT_VER="$(irradium 2>/dev/null | awk '{print $3}' || true)"
