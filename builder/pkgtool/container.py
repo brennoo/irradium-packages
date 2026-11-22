@@ -258,7 +258,7 @@ def _sync_upstream_targets(
     mirror_existing: set[str] = set()
     if skip_existing:
         def fetch_mirror_cat(cat: str) -> set[str]:
-            for suffix in ("index.html", ""):
+            for suffix in ("", "index.html"):
                 url = f"{mirror_url}/{cat}/{suffix}"
                 try:
                     req = urllib.request.Request(url, headers={"User-Agent": "irradium-packages/1.0"})
@@ -735,11 +735,15 @@ class ContainerBuilder:
                             subprocess.run(["pkgadd", str(best_pkg)], check=True)
                         return True
 
-            remote_encoded = _find_matching_pkg_in_html(
-                f"{self.mirror_url}/{category}/index.html",
-                name,
-                self.ssl_ctx,
-            )
+            remote_encoded = None
+            for suffix in ("", "index.html"):
+                remote_encoded = _find_matching_pkg_in_html(
+                    f"{self.mirror_url}/{category}/{suffix}",
+                    name,
+                    self.ssl_ctx,
+                )
+                if remote_encoded:
+                    break
             if remote_encoded:
                 remote_fname = urllib.parse.unquote(remote_encoded)
                 if not _prt_get_isinst(name):
@@ -955,7 +959,7 @@ def run_in_container(raw_targets: list[str]) -> int:
     arch = os.environ.get("ARCH", "riscv64")
     distr = os.environ.get("DISTR_VERSION", "3.8")
     skip_existing = os.environ.get("SKIP_EXISTING", "no") == "yes"
-    mirror_url = os.environ.get("MIRROR_URL", f"https://irradium.blackhole.com.br/irradium/packages/{arch}/{distr}")
+    mirror_url = os.environ.get("MIRROR_URL", f"https://pkg.irradium.com.br/irradium/packages/{arch}/{distr}")
     ssl_ctx = _create_ssl_context()
 
     try:

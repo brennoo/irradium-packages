@@ -25,7 +25,7 @@ UPSTREAM_TXT = PACKAGES_DIR / "upstream.txt"
 DEFAULT_ARCH = os.environ.get("ARCH", "riscv64")
 _RAW_DISTR_VERSION = os.environ.get("DISTR_VERSION", "").strip()
 DEFAULT_DISTR_VERSION = _RAW_DISTR_VERSION if re.fullmatch(r"\d+\.\d+", _RAW_DISTR_VERSION) else "3.8"
-DEFAULT_MIRROR_DOMAIN = os.environ.get("MIRROR_DOMAIN", "https://irradium.blackhole.com.br").rstrip("/")
+DEFAULT_MIRROR_DOMAIN = os.environ.get("MIRROR_DOMAIN", "https://pkg.irradium.com.br").rstrip("/")
 
 CATEGORIES = ("core", "opt", "xorg", "xfce", "contrib")
 
@@ -379,10 +379,6 @@ def scan_local_repo(
 
 _MIRROR_INDEX_CACHE: dict[tuple[str, str, str], dict[str, tuple[str, str, str]]] = {}
 
-_ROOT_INDEX_LINK_RE = re.compile(
-    r'href="[^"]*?/irradium/packages/([^/]+)/([^/]+)/([^/]+)/([^"]+\.pkg\.tar\.[a-z0-9]+)"'
-)
-
 
 def fetch_mirror_index(
     mirror_domain: str = DEFAULT_MIRROR_DOMAIN,
@@ -392,9 +388,7 @@ def fetch_mirror_index(
 ) -> dict[str, tuple[str, str, str]]:
     """Fetch published binary package versions from the mirror across all architectures and categories.
 
-    First queries the root mirror index (`{mirror_domain}/index.html`), which lists all published
-    files across all architectures (`/irradium/packages/<arch>/<distr>/<cat>/<pkg>`), and falls back
-    to per-category `index.html` pages if the root index has no matching links.
+    Queries per-category directory listings (`/irradium/packages/<arch>/<distr>/<cat>/`).
     If a package exists in multiple architectures with different versions, keeps the lowest (older)
     `<version>-<release>` so vulnerabilities affecting an older arch build are not masked.
 
@@ -417,62 +411,37 @@ def fetch_mirror_index(
         else:
             arch_map[name] = (ver, rel, cat)
 
-    # 1. Query root index.html which lists all published files across all architectures
-    for root_suffix in ("/index.html", "/"):
-        root_url = f"{mirror_domain.rstrip('/')}{root_suffix}"
-        try:
-            req = urllib.request.Request(root_url, headers={"User-Agent": "irradium-vulntool/1.0"})
-            with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as resp:
-                if resp.status != 200:
-                    continue
-                html = resp.read().decode("utf-8", errors="replace")
-            for m in _ROOT_INDEX_LINK_RE.finditer(html):
-                m_arch, m_distr, m_cat, m_file = m.group(1), m.group(2), m.group(3), m.group(4)
-                if m_distr != distr:
-                    continue
-                if arch_key != "*" and m_arch != arch_key:
-                    continue
-                parsed = parse_pkg_filename(m_file)
-                if parsed:
-                    name, ver, rel = parsed
-                    _record_arch(m_arch, name, ver, rel, m_cat)
-            if per_arch:
-                break
-        except Exception:
-            continue
+    # Query per-arch, per-category directory listings on the mirror
+    arches = [arch_key] if arch_key != "*" else ["riscv64", "aarch64"]
+    cat_targets = [(a, c) for a in arches for c in CATEGORIES]
 
-    # 2. Fallback to per-arch, per-category index.html if root index yielded nothing
-    if not per_arch:
-        arches = [arch_key] if arch_key != "*" else ["riscv64", "aarch64"]
-        cat_targets = [(a, c) for a in arches for c in CATEGORIES]
+    def _fetch_cat(target: tuple[str, str]) -> list[tuple[str, str, str, str, str]]:
+        a, cat = target
+        base = f"{mirror_domain.rstrip('/')}/irradium/packages/{a}/{distr}"
+        cat_items: list[tuple[str, str, str, str, str]] = []
+        for suffix in ("", "index.html"):
+            url = f"{base}/{cat}/{suffix}"
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": "irradium-vulntool/1.0"})
+                with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as resp:
+                    if resp.status != 200:
+                        continue
+                    html = resp.read().decode("utf-8", errors="replace")
+                for m in re.finditer(r'href="([^"]+\.pkg\.tar\.[a-z0-9]+)"', html):
+                    parsed = parse_pkg_filename(m.group(1))
+                    if parsed:
+                        name, ver, rel = parsed
+                        cat_items.append((a, name, ver, rel, cat))
+                if cat_items:
+                    break
+            except Exception:
+                continue
+        return cat_items
 
-        def _fetch_cat(target: tuple[str, str]) -> list[tuple[str, str, str, str, str]]:
-            a, cat = target
-            base = f"{mirror_domain.rstrip('/')}/irradium/packages/{a}/{distr}"
-            cat_items: list[tuple[str, str, str, str, str]] = []
-            for suffix in ("index.html", ""):
-                url = f"{base}/{cat}/{suffix}"
-                try:
-                    req = urllib.request.Request(url, headers={"User-Agent": "irradium-vulntool/1.0"})
-                    with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as resp:
-                        if resp.status != 200:
-                            continue
-                        html = resp.read().decode("utf-8", errors="replace")
-                    for m in re.finditer(r'href="([^"]+\.pkg\.tar\.[a-z0-9]+)"', html):
-                        parsed = parse_pkg_filename(m.group(1))
-                        if parsed:
-                            name, ver, rel = parsed
-                            cat_items.append((a, name, ver, rel, cat))
-                    if cat_items:
-                        break
-                except Exception:
-                    continue
-            return cat_items
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
-            for items in ex.map(_fetch_cat, cat_targets):
-                for a, name, ver, rel, cat in items:
-                    _record_arch(a, name, ver, rel, cat)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:
+        for items in ex.map(_fetch_cat, cat_targets):
+            for a, name, ver, rel, cat in items:
+                _record_arch(a, name, ver, rel, cat)
 
     for arch_map in per_arch.values():
         for name, (ver, rel, cat) in arch_map.items():

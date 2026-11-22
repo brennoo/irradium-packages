@@ -89,7 +89,7 @@ class BuildConfig:
         keys_dir = pathlib.Path(os.environ.get("KEYS_DIR", str(ROOT_DIR / "keys"))).resolve()
         r2_bucket = os.environ.get("R2_BUCKET", "irradium")
         r2_endpoint = os.environ.get("R2_ENDPOINT", "")
-        mirror_domain = os.environ.get("MIRROR_DOMAIN", "https://irradium.blackhole.com.br").rstrip("/")
+        mirror_domain = os.environ.get("MIRROR_DOMAIN", "https://pkg.irradium.com.br").rstrip("/")
         return cls(
             arch=arch,
             distr_version=distr,
