@@ -26,9 +26,73 @@
   {
     "pkg": "unzip",
     "version": "6.0",
+    "cve": "CVE-2014-9636",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (test_compr_eb STORED method eb_size vs eb_ucsize check in extract.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
+    "cve": "CVE-2014-9913",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (list_files compression_method <= 999 methbuf bounds check in list.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
+    "cve": "CVE-2015-7696",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (decrypt NEXTBYTE == EOF check in crypt.c and csiz_decrypted < 12 check in extract.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
+    "cve": "CVE-2015-7697",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (UZbunzip2 empty input check in extract.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
+    "cve": "CVE-2016-9844",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (zi_short compression_method <= 999 methbuf bounds check in zipinfo.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
     "cve": "CVE-2018-1000035",
     "status": "fixed",
     "note": "Patched in crux-opt/unzip via cumulative.patch (crypt.c decrypt and extract.c csiz_decrypted bounds check)",
     "timestamp": "2026-11-15T22:10:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
+    "cve": "CVE-2018-18384",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (cfactorstr buffer expansion and snprintf bounds check in list_files in list.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
+    "cve": "CVE-2019-13232",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (cover_add / cover_within overlapped-span zip-bomb detection in extract.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "unzip",
+    "version": "6.0",
+    "cve": "CVE-2021-4217",
+    "status": "fixed",
+    "note": "Patched in crux-opt/unzip via cumulative.patch (getUnicodeData !G.filename_full NULL check before crc32 in process.c)",
+    "timestamp": "2026-11-23T23:55:00Z"
   }
 ]

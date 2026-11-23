@@ -11,6 +11,15 @@
   {
     "pkg": "xorg-server",
     "version": "*",
+    "cve": "CVE-2022-3553",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the macOS XQuartz display server (hw/xquartz/X11Controller.m, fixed upstream in commit dfd05799), which is not compiled on Linux; NVD left x.org:x_server CPE unbounded",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "xorg-server",
+    "version": "*",
     "cve": "CVE-2023-5574",
     "status": "not_affected",
     "justification": "vulnerable_code_not_present",
@@ -19,7 +28,7 @@
   },
   {
     "pkg": "xorg-server",
-    "version": "21.1.26",
+    "version": ">=21.1.24",
     "cve": "CVE-2026-55999",
     "status": "fixed",
     "note": "Fixed upstream in xorg-server 21.1.24 (commit fbf7bac2 per X.Org oss-security 2026/07/08/2 advisory); NVD CPE range has a typo (< 21.2.24 instead of < 21.1.24)",
@@ -27,7 +36,7 @@
   },
   {
     "pkg": "xorg-server",
-    "version": "21.1.26",
+    "version": ">=21.1.24",
     "cve": "CVE-2026-56000",
     "status": "fixed",
     "note": "Fixed upstream in xorg-server 21.1.24 (commit 2779affb per X.Org oss-security 2026/07/08/2 advisory); NVD CPE range has a typo (< 21.2.24 instead of < 21.1.24)",

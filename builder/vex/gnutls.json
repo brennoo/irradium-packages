@@ -2,6 +2,14 @@
   {
     "pkg": "gnutls",
     "version": ">=3.8.10",
+    "cve": "CVE-2025-32989",
+    "status": "fixed",
+    "note": "Fixed upstream in GnuTLS 3.8.10; Red Hat CNA record in NVD has an unbounded gnu:gnutls CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "gnutls",
+    "version": ">=3.8.10",
     "cve": "CVE-2025-32990",
     "status": "fixed",
     "note": "Fixed upstream in GnuTLS 3.8.10; Red Hat CNA record in NVD has an unbounded gnu:gnutls CPE",
@@ -14,6 +22,14 @@
     "status": "fixed",
     "note": "Fixed upstream in GnuTLS 3.8.12; Red Hat CNA record in NVD has an unbounded gnu:gnutls CPE",
     "timestamp": "2026-11-23T22:20:00Z"
+  },
+  {
+    "pkg": "gnutls",
+    "version": ">=3.8.13",
+    "cve": "CVE-2026-3832",
+    "status": "fixed",
+    "note": "Fixed upstream in GnuTLS 3.8.13; Red Hat CNA record in NVD has an unbounded gnu:gnutls CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
   },
   {
     "pkg": "gnutls",

@@ -1,0 +1,10 @@
+[
+  {
+    "pkg": "p11-kit",
+    "version": ">=0.26.4",
+    "cve": "CVE-2026-13757",
+    "status": "fixed",
+    "note": "Fixed upstream in p11-kit 0.26.4 (GHSA-p2wm-69qx-x25w); Red Hat CNA record in NVD has an unbounded p11-kit_project:p11-kit CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

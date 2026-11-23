@@ -1,0 +1,10 @@
+[
+  {
+    "pkg": "libinput",
+    "version": ">=1.31.1",
+    "cve": "CVE-2026-35094",
+    "status": "fixed",
+    "note": "Fixed upstream in libinput 1.31.1 (and requires optional Lua plugin support); Red Hat CNA record in NVD has an unbounded freedesktop:libinput CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

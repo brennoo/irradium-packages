@@ -2,6 +2,24 @@
   {
     "pkg": "firefox",
     "version": "*",
+    "cve": "CVE-2003-1492",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2003 Netscape Navigator 7.0.2 and Mozilla Suite 1.x trailing-dot cookie report with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2007-1970",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2007 Firefox 2.0.0.3 delayed document.write mixed-content indicator report with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
     "cve": "CVE-2007-2176",
     "status": "not_affected",
     "justification": "vulnerable_code_not_present",
@@ -11,11 +29,47 @@
   {
     "pkg": "firefox",
     "version": "*",
+    "cve": "CVE-2007-3670",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2007 Windows-only Internet Explorer FirefoxURL/FirefoxHTML protocol handler argument injection (firefox.exe, fixed in Firefox 2.0.0.5) with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2007-3827",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2007 Firefox 2.x domainless cookie report with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
     "cve": "CVE-2007-4013",
     "status": "not_affected",
     "justification": "vulnerable_code_not_present",
     "note": "Affects Citrix Access Gateway Windows NPAPI DLL (npCtxCAO.dll), not Mozilla Firefox",
     "timestamp": "2026-11-15T22:10:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2007-5967",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2007 Firefox 2.x root certificate installation report (BMO #406724) with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2007-6715",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2007 Firefox 2.0.0.1 GIF parser crash (fixed in Firefox 2.0.0.2, BMO #367345) with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
   },
   {
     "pkg": "firefox",
@@ -34,6 +88,42 @@
     "justification": "vulnerable_code_not_present",
     "note": "Affects third-party Sage 1.4.3 RSS extension for Firefox 3.x, not Mozilla Firefox",
     "timestamp": "2026-11-15T22:10:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2009-4129",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2009 Firefox 3.5.x JavaScript message origin race condition report with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2009-4130",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2009 Firefox 3.5.x MakeScriptDialogTitle visual truncation report with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2009-4630",
+    "status": "not_affected",
+    "justification": "inline_mitigations_already_exist",
+    "note": "Disputed 2009 Firefox 3.5 local HTML DNS prefetching report (BMO #492196) with unbounded NVD CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "firefox",
+    "version": "*",
+    "cve": "CVE-2011-0064",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2011 HarfBuzz hb_buffer_ensure flaw fixed upstream in Firefox 4.0 (MFSA 2011-12); NVD left mozilla:firefox CPE unbounded",
+    "timestamp": "2026-11-23T23:55:00Z"
   },
   {
     "pkg": "firefox",

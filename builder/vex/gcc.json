@@ -1,0 +1,10 @@
+[
+  {
+    "pkg": "gcc",
+    "version": ">=14.1.0",
+    "cve": "CVE-2023-4039",
+    "status": "fixed",
+    "note": "Fixed upstream in GCC 14.1+ (commit 75c37e03, Sep 2023) and disputed by upstream GCC; NVD gnu:gcc CPE uses a date string ('< 2023-09-12') as the version bound which falsely matches 14.x < 2023",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

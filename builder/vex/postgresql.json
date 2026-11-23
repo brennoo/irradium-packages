@@ -1,0 +1,11 @@
+[
+  {
+    "pkg": "postgresql",
+    "version": "*",
+    "cve": "CVE-2017-8806",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects Debian/Ubuntu downstream postgresql-common wrapper scripts (pg_ctlcluster, pg_createcluster, pg_upgradecluster) only, not upstream PostgreSQL; NVD has an unbounded postgresql:postgresql CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

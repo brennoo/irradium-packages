@@ -1,0 +1,10 @@
+[
+  {
+    "pkg": "tinc",
+    "version": ">=1.0.21",
+    "cve": "CVE-2013-1428",
+    "status": "fixed",
+    "note": "Fixed upstream in tinc 1.0.21 (2013); NVD CPE range uses '<= 1.1' instead of '>= 1.1pre1, < 1.1pre7', falsely matching 1.0.37",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

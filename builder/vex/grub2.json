@@ -1,0 +1,29 @@
+[
+  {
+    "pkg": "grub2",
+    "version": "*",
+    "cve": "CVE-2019-14865",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects downstream Fedora/Red Hat grub2-set-bootflag utility patch only, not upstream GNU GRUB built in irradium-opt/grub2; NVD has an unbounded gnu:grub2 CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "grub2",
+    "version": "*",
+    "cve": "CVE-2023-4001",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects downstream Red Hat UUID configuration search patch only and does not affect upstream GNU GRUB; NVD has an unbounded gnu:grub2 CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "grub2",
+    "version": "*",
+    "cve": "CVE-2024-1048",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects downstream Fedora/Red Hat grub2-set-bootflag utility patch only, not upstream GNU GRUB built in irradium-opt/grub2; NVD has an unbounded gnu:grub2 CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

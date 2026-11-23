@@ -1,0 +1,11 @@
+[
+  {
+    "pkg": "pulseaudio",
+    "version": "*",
+    "cve": "CVE-2024-11586",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects Ubuntu downstream PulseAudio packaging only (Launchpad #2078822), not upstream PulseAudio; NVD has an unbounded pulseaudio:pulseaudio CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

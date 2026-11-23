@@ -1,0 +1,11 @@
+[
+  {
+    "pkg": "lua53",
+    "version": "<5.4.0",
+    "cve": "CVE-2020-15945",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects Lua 5.4.0 only (Lua bug 5.4.0-8 in changedline() in ldebug.c, fixed in 5.4.1); NVD CPE range erroneously includes >= 5.3.1, < 5.4.0",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

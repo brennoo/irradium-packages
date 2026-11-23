@@ -2,11 +2,29 @@
   {
     "pkg": "openssh",
     "version": "*",
+    "cve": "CVE-2007-2768",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Historical 2007 OPIE PAM (pam_opie) user enumeration report with an unbounded openbsd:openssh NVD CPE; OPIE PAM is not present in Irradium",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "openssh",
+    "version": "*",
     "cve": "CVE-2008-3844",
     "status": "not_affected",
     "justification": "vulnerable_code_not_present",
     "note": "2008 RHEL 4/5 package signing incident; never an upstream OpenSSH code vulnerability",
     "timestamp": "2026-11-15T22:10:00Z"
+  },
+  {
+    "pkg": "openssh",
+    "version": "*",
+    "cve": "CVE-2014-9278",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects downstream Fedora / Red Hat Enterprise Linux 7 Kerberos .k5users patch (openssh-6.6p1-kuserok.patch), not upstream OpenSSH; NVD has an unbounded openbsd:openssh CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
   },
   {
     "pkg": "openssh",
@@ -25,5 +43,31 @@
     "justification": "vulnerable_code_not_present",
     "note": "Affects third-party Linux distribution GSSAPI key-exchange patchset only, not upstream OpenSSH built by crux-core/openssh",
     "timestamp": "2026-11-15T22:10:00Z"
+  },
+  {
+    "pkg": "openssh",
+    "version": "*",
+    "cve": "CVE-2026-55653",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects downstream Red Hat Enterprise Linux FIPS mode DH-GEX known-group validation patch only, not upstream OpenSSH; Red Hat CNA record in NVD has an unbounded openbsd:openssh CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "openssh",
+    "version": "*",
+    "cve": "CVE-2026-55654",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Affects downstream Red Hat Enterprise Linux GSSAPI auth-indicators patch only (and GSSAPI is not enabled in crux-core/openssh); Red Hat CNA record in NVD has an unbounded openbsd:openssh CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "openssh",
+    "version": ">=10.5p1",
+    "cve": "CVE-2026-55655",
+    "status": "fixed",
+    "note": "Fixed upstream in OpenSSH >= 10.4p1/10.5p1; Red Hat CNA record in NVD has an unbounded openbsd:openssh CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
   }
 ]

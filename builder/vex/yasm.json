@@ -1,0 +1,20 @@
+[
+  {
+    "pkg": "yasm",
+    "version": "*",
+    "cve": "CVE-2023-30402",
+    "status": "not_affected",
+    "justification": "inline_mitigations_already_exist",
+    "note": "Disputed CLI assembler crash on crafted input in handle_dot_label; rejected under the upstream YASM security policy as a non-security bug",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "yasm",
+    "version": "*",
+    "cve": "CVE-2023-31975",
+    "status": "not_affected",
+    "justification": "inline_mitigations_already_exist",
+    "note": "Disputed CLI assembler memory leak in yasm_intnum_copy; rejected under the upstream YASM security policy as a non-security bug",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]

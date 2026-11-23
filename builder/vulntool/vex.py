@@ -29,7 +29,7 @@ VALID_JUSTIFICATIONS = {
     "inline_mitigations_already_exist",
 }
 
-CVE_ID_RE = re.compile(r"\b(CVE-\d{4}-\d{4,})\b", re.I)
+CVE_ID_RE = re.compile(r"(?<![A-Za-z0-9])(CVE-\d{4}-\d{4,})(?![A-Za-z0-9])", re.I)
 CVE_HEADER_LINE_RE = re.compile(r"^(?:#\s*|\*\s*|--\s*|\s*)CVE(?:s|-ID)?\s*:\s*(.+)$", re.I)
 
 

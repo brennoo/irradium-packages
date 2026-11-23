@@ -2,6 +2,15 @@
   {
     "pkg": "binutils",
     "version": "*",
+    "cve": "CVE-2025-69650",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_present",
+    "note": "Disputed upstream (sourceware PR 33698/33700): the uninitialized r_symbol free in process_got_section_contents() existed only in pre-release development commits and never affected any tagged release",
+    "timestamp": "2026-11-15T22:33:00Z"
+  },
+  {
+    "pkg": "binutils",
+    "version": "*",
     "cve": "CVE-2026-3441",
     "status": "not_affected",
     "justification": "vulnerable_code_not_in_execute_path",
@@ -20,6 +29,31 @@
   {
     "pkg": "binutils",
     "version": "*",
+    "cve": "CVE-2026-4647",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the IBM AIX XCOFF BFD backend (sourceware PR 33919), which is not compiled in custom-core/binutils (built for native Linux ELF targets only), and was fixed upstream before 2.47; Red Hat CNA record in NVD has an unbounded gnu:binutils CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "binutils",
+    "version": ">=2.47",
+    "cve": "CVE-2026-6844",
+    "status": "fixed",
+    "note": "Fixed upstream in Binutils <= 2.46; Red Hat CNA record in NVD (RHBZ #2460016) has an unbounded gnu:binutils CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "binutils",
+    "version": ">=2.47",
+    "cve": "CVE-2026-6845",
+    "status": "fixed",
+    "note": "Fixed upstream in Binutils <= 2.46; Red Hat CNA record in NVD (RHBZ #2460012) has an unbounded gnu:binutils CPE",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "binutils",
+    "version": "*",
     "cve": "CVE-2026-6846",
     "status": "not_affected",
     "justification": "vulnerable_code_not_in_execute_path",
@@ -29,10 +63,28 @@
   {
     "pkg": "binutils",
     "version": "*",
-    "cve": "CVE-2025-69650",
+    "cve": "CVE-2026-90803",
     "status": "not_affected",
-    "justification": "vulnerable_code_not_present",
-    "note": "Disputed upstream (sourceware PR 33698/33700): the uninitialized r_symbol free in process_got_section_contents() existed only in pre-release development commits and never affected any tagged release",
-    "timestamp": "2026-11-15T22:33:00Z"
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the x86_64 ELF BFD linker backend (elf_x86_64_relocate_section in bfd/elf64-x86-64.c), which is not compiled in custom-core/binutils (built for native riscv64/aarch64 Linux targets only)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "binutils",
+    "version": "*",
+    "cve": "CVE-2026-91781",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the x86_64 ELF BFD linker backend (elf_x86_64_common_section_index in bfd/elf64-x86-64.c), which is not compiled in custom-core/binutils (built for native riscv64/aarch64 Linux targets only)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "binutils",
+    "version": "*",
+    "cve": "CVE-2026-91782",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the x86 ELF BFD linker backend (elf_x86_allocate_dynrelocs in bfd/elfxx-x86.c), which is not compiled in custom-core/binutils (built for native riscv64/aarch64 Linux targets only)",
+    "timestamp": "2026-11-23T23:55:00Z"
   }
 ]

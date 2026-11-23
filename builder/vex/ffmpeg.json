@@ -1,0 +1,101 @@
+[
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125172",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional libxevd external decoder wrapper (libavcodec/libxevd.c, --enable-libxevd), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125173",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional libxevd external decoder wrapper (libavcodec/libxevd.c, --enable-libxevd), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125198",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects Android JNI MediaCodec wrapper (mediaformat_jni_setBuffer in libavcodec/mediacodec_wrapper.c, --enable-jni/--enable-mediacodec), which is not compiled on Linux",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125200",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional libx265 encoder wrapper (libavcodec/libx265.c, --enable-libx265), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125238",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional libxevd external decoder wrapper (libavcodec/libxevd.c, --enable-libxevd), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125240",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional SVT-JPEG-XS decoder wrapper (libavcodec/libsvtjpegxsdec.c, --enable-libsvtjpegxs), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125242",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional VDPAU hardware acceleration backend (libavcodec/vdpau.c, --enable-vdpau), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125252",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional VAAPI hardware acceleration backend (libavcodec/vaapi_decode.c, --enable-vaapi), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125253",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "32-bit size_t superframe size check wrap in cbs_vp9_split_fragment() (libavcodec/cbs_vp9.c); Irradium exclusively targets 64-bit architectures (riscv64 and aarch64)",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125263",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects FFmpeg built with the optional liblcevc_dec decoder (--enable-liblcevc-dec), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  },
+  {
+    "pkg": "ffmpeg",
+    "version": "*",
+    "cve": "CVE-2026-125265",
+    "status": "not_affected",
+    "justification": "vulnerable_code_not_in_execute_path",
+    "note": "Affects the optional NVIDIA NVDEC hardware decoder backend (libavcodec/nvdec.c, --enable-nvdec), which is not compiled in custom-opt/ffmpeg",
+    "timestamp": "2026-11-23T23:55:00Z"
+  }
+]
