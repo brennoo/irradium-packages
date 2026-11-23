@@ -11,7 +11,9 @@ import pathlib
 import re
 import sys
 
-from . import cpe, ports
+from . import cpe, ports, versions
+
+_VERSION_RANGE_RE = re.compile(r"^(>=|>|<=|<|==|=)\s*(.+)$")
 
 VEX_DIR = pathlib.Path(
     os.environ.get("VEX_DIR", str(ports.BUILDER_DIR / "vex"))
@@ -42,10 +44,27 @@ class VexStatement:
     source: str = "manual"
     timestamp: str = ""
 
+    def is_version_range(self) -> bool:
+        return bool(_VERSION_RANGE_RE.match(self.version))
+
     def matches_port_version(self, port: ports.PortInfo) -> bool:
-        """Return True if this statement is bound to the port's current exact version (or '*' for all versions)."""
+        """Return True if this statement is bound to the port's current version (or '*' / range specifier)."""
         if self.version == "*":
             return True
+        m = _VERSION_RANGE_RE.match(self.version)
+        if m:
+            op, target_ver = m.group(1), m.group(2).strip()
+            candidate = port.version_release if "-" in target_ver else port.version
+            cmp_res = versions.vercmp(candidate, target_ver)
+            if op == ">=":
+                return cmp_res >= 0
+            if op == ">":
+                return cmp_res > 0
+            if op == "<=":
+                return cmp_res <= 0
+            if op == "<":
+                return cmp_res < 0
+            return cmp_res == 0
         return self.version in (
             port.version,
             port.version_release,
@@ -367,7 +386,7 @@ def build_openvex_document(
     for stmt in active_statements:
         port = port_by_name.get(stmt.pkg)
         versions_for_purl: set[str] = set()
-        if stmt.version and stmt.version != "*":
+        if stmt.version and stmt.version != "*" and not stmt.is_version_range():
             versions_for_purl.add(stmt.version)
         if port:
             versions_for_purl.add(port.version)
