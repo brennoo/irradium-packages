@@ -1,0 +1,104 @@
+.github/workflows/vuln-scan.yml
+  h_c872c6f1ba48bc 44,106-120
+builder/vulntool/ports.py
+  h_c872c6f1ba48bc 26-27
+packages/build.txt
+  h_c872c6f1ba48bc 20-29
+ports/custom/custom-contrib/REPO
+  h_c872c6f1ba48bc 5-7,51-62
+ports/custom/custom-contrib/php-bcmath/.footprint
+  h_c872c6f1ba48bc 1-9
+ports/custom/custom-contrib/php-bcmath/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-contrib/php-bcmath/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-contrib/php-bcmath/Pkgfile
+  h_c872c6f1ba48bc 1-20
+ports/custom/custom-contrib/php-ldap/.footprint
+  h_c872c6f1ba48bc 1-9
+ports/custom/custom-contrib/php-ldap/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-contrib/php-ldap/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-contrib/php-ldap/Pkgfile
+  h_c872c6f1ba48bc 1-21
+ports/custom/custom-contrib/php-pgsql/.footprint
+  h_c872c6f1ba48bc 1-11
+ports/custom/custom-contrib/php-pgsql/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-contrib/php-pgsql/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-contrib/php-pgsql/Pkgfile
+  h_c872c6f1ba48bc 1-29
+ports/custom/custom-opt/REPO
+  h_c872c6f1ba48bc 5-11,84-112
+ports/custom/custom-opt/php-fpm/.footprint
+  h_c872c6f1ba48bc 1-14
+ports/custom/custom-opt/php-fpm/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/php-fpm/.signature
+  h_c872c6f1ba48bc 1-6
+ports/custom/custom-opt/php-fpm/Pkgfile
+  h_c872c6f1ba48bc 1-47
+ports/custom/custom-opt/php-fpm/php-fpm
+  h_c872c6f1ba48bc 1-38
+ports/custom/custom-opt/php-gd/.footprint
+  h_c872c6f1ba48bc 1-9
+ports/custom/custom-opt/php-gd/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/php-gd/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-opt/php-gd/Pkgfile
+  h_c872c6f1ba48bc 1-25
+ports/custom/custom-opt/php-gettext/.footprint
+  h_c872c6f1ba48bc 1-9
+ports/custom/custom-opt/php-gettext/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/php-gettext/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-opt/php-gettext/Pkgfile
+  h_c872c6f1ba48bc 1-20
+ports/custom/custom-opt/php-mbstring/.footprint
+  h_c872c6f1ba48bc 1-9
+ports/custom/custom-opt/php-mbstring/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/php-mbstring/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-opt/php-mbstring/Pkgfile
+  h_c872c6f1ba48bc 1-24
+ports/custom/custom-opt/php-sockets/.footprint
+  h_c872c6f1ba48bc 1-9
+ports/custom/custom-opt/php-sockets/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/php-sockets/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-opt/php-sockets/Pkgfile
+  h_c872c6f1ba48bc 1-20
+ports/custom/custom-opt/php-zip/.footprint
+  h_c872c6f1ba48bc 1-9
+ports/custom/custom-opt/php-zip/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/php-zip/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-opt/php-zip/Pkgfile
+  h_c872c6f1ba48bc 1-24
+ports/custom/custom-opt/php/.footprint
+  h_c872c6f1ba48bc 1-354
+ports/custom/custom-opt/php/.override
+  h_c872c6f1ba48bc 1-8
+ports/custom/custom-opt/php/.signature
+  h_c872c6f1ba48bc 1-5
+ports/custom/custom-opt/php/Pkgfile
+  h_c872c6f1ba48bc 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0056bbc209af523189e57446cd0d667e89e39fd6",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
