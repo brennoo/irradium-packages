@@ -1,0 +1,26 @@
+README.md
+  h_c872c6f1ba48bc 42
+builder/pkgtool/container.py
+  h_c872c6f1ba48bc 261,738-746,962
+builder/pkgtool/docker.py
+  h_c872c6f1ba48bc 92
+builder/pkgtool/publish.py
+  h_c872c6f1ba48bc 1,5-6,10,13-35,45-46,49-50,53-88,97,102-108,112-132,134-135,137-150,152-180
+builder/vulntool/ports.py
+  h_c872c6f1ba48bc 28,391,414-439,441-444
+builder/vulntool/vex.py
+  h_c872c6f1ba48bc 402
+setup.sh
+  h_c872c6f1ba48bc 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6542fe5665e8c69c3dda086cc1a4ac26e78e41b9",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
