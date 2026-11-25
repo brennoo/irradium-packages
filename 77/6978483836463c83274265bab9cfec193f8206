@@ -1,0 +1,54 @@
+builder/vex/apache.json
+  h_c872c6f1ba48bc 2-19
+builder/vex/binutils.json
+  h_c872c6f1ba48bc 2-10,29-53,66,68-88
+builder/vex/cups.json
+  h_c872c6f1ba48bc 1-28
+builder/vex/ffmpeg.json
+  h_c872c6f1ba48bc 1-101
+builder/vex/firefox.json
+  h_c872c6f1ba48bc 2-19,29-46,56-73,92-127
+builder/vex/gcc.json
+  h_c872c6f1ba48bc 1-10
+builder/vex/gnutls.json
+  h_c872c6f1ba48bc 2-9,26-33
+builder/vex/grub2-efi.json
+  h_c872c6f1ba48bc 1-29
+builder/vex/grub2.json
+  h_c872c6f1ba48bc 1-29
+builder/vex/libinput.json
+  h_c872c6f1ba48bc 1-10
+builder/vex/libxslt.json
+  h_c872c6f1ba48bc 4,9-16
+builder/vex/lua53.json
+  h_c872c6f1ba48bc 1-11
+builder/vex/openssh.json
+  h_c872c6f1ba48bc 2-10,20-28,46-71
+builder/vex/p11-kit.json
+  h_c872c6f1ba48bc 1-10
+builder/vex/postgresql.json
+  h_c872c6f1ba48bc 1-11
+builder/vex/pulseaudio.json
+  h_c872c6f1ba48bc 1-11
+builder/vex/tinc.json
+  h_c872c6f1ba48bc 1-10
+builder/vex/unzip.json
+  h_c872c6f1ba48bc 26-65,73-96
+builder/vex/xorg-server.json
+  h_c872c6f1ba48bc 11-19,31,39
+builder/vex/yasm.json
+  h_c872c6f1ba48bc 1-20
+builder/vulntool/vex.py
+  h_c872c6f1ba48bc 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "776978483836463c83274265bab9cfec193f8206",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
