@@ -1,0 +1,28 @@
+.github/workflows/vuln-scan.yml
+  h_c872c6f1ba48bc 156-173,180,195-197
+README.md
+  h_c872c6f1ba48bc 1,3-5,7-14,21,32,54,93,103-104
+builder/pkgtool/container.py
+  h_c872c6f1ba48bc 264,447,456,463
+builder/pkgtool/publish.py
+  h_c872c6f1ba48bc 99
+builder/vulntool/cpe.py
+  h_c872c6f1ba48bc 268
+builder/vulntool/vex.py
+  h_c872c6f1ba48bc 403
+packages/build.txt
+  h_c872c6f1ba48bc 1
+setup.sh
+  h_c872c6f1ba48bc 2,4,14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a0d0bccb84a0301f98b864156bd3724d1a9be3d6",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
