@@ -1,0 +1,14 @@
+builder/pkgtool/publish.py
+  h_c872c6f1ba48bc 178-183
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4ad62bd0259f81719b1f87e116dc06a4fc9c327a",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
