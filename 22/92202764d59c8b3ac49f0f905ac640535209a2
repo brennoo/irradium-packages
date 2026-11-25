@@ -1,0 +1,16 @@
+README.md
+  h_c872c6f1ba48bc 7
+builder/bootstrap.py
+  h_c872c6f1ba48bc 100,102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2292202764d59c8b3ac49f0f905ac640535209a2",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
