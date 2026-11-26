@@ -2,7 +2,6 @@ d:firefox
 d:haproxy
 d:libssh2
 d:net-snmp
-d:php-bcmath
 d:php-ldap
 d:php-pgsql
 f:c45bb7754e1e93022297e6c8f9bbb3eb:firefox/.footprint.aarch64
@@ -48,10 +47,6 @@ f:7119c2ca7adff6ba9f354b0f808bd54b:net-snmp/rc.snmpd
 f:ef2b068ad9ad0cbc63ca3d2c4a6fb669:net-snmp/snmpd.conf
 f:d67274250f9419b16aab397874371bb9:net-snmp/snmpd.default
 f:6f4c927ddc9bf6ef1aa764d6232d8ef3:net-snmp/snmpd.logrotate
-f:4dded01055cadd7f8e4f283bc3cf7c3f:php-bcmath/.footprint
-f:59261b4cdd989de9422f686ae10f9ad2:php-bcmath/.override
-f:917bb030c6f9017cf3f1f150efc2dfc5:php-bcmath/.signature
-f:1881da5e0366f9ba2fb2c117da16bf85:php-bcmath/Pkgfile
 f:e8d4d42b3c3fce39a483860e7550ccb5:php-ldap/.footprint
 f:c901b3498caf59b1e40cacdd46405601:php-ldap/.override
 f:066c3a41e9e804eec7f5777730cebf35:php-ldap/.signature
