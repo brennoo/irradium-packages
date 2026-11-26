@@ -16,7 +16,6 @@ glibc
 libssh2
 libsdl
 libsndfile
-ffmpeg
 php
 php-bcmath
 php-fpm
