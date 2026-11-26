@@ -4,7 +4,6 @@ d:libssh2
 d:net-snmp
 d:php-bcmath
 d:php-ldap
-d:php-pgsql
 f:c45bb7754e1e93022297e6c8f9bbb3eb:firefox/.footprint.aarch64
 f:eb5e46465a88148b6cd781237e350b1d:firefox/.footprint.riscv64
 f:e724ec27f46f0276d607c1f641ed0d4f:firefox/.override
@@ -56,7 +55,3 @@ f:e8d4d42b3c3fce39a483860e7550ccb5:php-ldap/.footprint
 f:c901b3498caf59b1e40cacdd46405601:php-ldap/.override
 f:066c3a41e9e804eec7f5777730cebf35:php-ldap/.signature
 f:e71b6fdc10c0556c21a76da524475ecb:php-ldap/Pkgfile
-f:4bcff8c2fae56f50bf50bb9a3211205e:php-pgsql/.footprint
-f:23c5df1c52aba72d719c87d4723029c6:php-pgsql/.override
-f:3999304558d2065498c604fa61849a41:php-pgsql/.signature
-f:86c848f09c9bb1cff5a29ed4edc75d94:php-pgsql/Pkgfile
