@@ -23,7 +23,6 @@ php-fpm
 php-gd
 php-gettext
 php-ldap
-php-mbstring
 php-pgsql
 php-sockets
 php-zip
