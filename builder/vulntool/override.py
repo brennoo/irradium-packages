@@ -565,8 +565,25 @@ def retire_override(pkg: str) -> tuple[bool, str]:
 
     meta = OverrideMeta.load(port_dir / ".override")
     col_dir = port_dir.parent
+    cat = col_dir.name.split("-")[-1]
     shutil.rmtree(port_dir)
     signify.update_collection_repo(col_dir, ensure_ignore_file=True)
+
+    # Remove stale local override build archives from repo/ if upstream is now newer
+    origin_dir = _resolve_origin_port_dir(meta.origin, pkg)
+    if origin_dir is not None:
+        up_ver, up_rel = ports.source_pkgfile(origin_dir)
+        up_vr = f"{up_ver}-{up_rel}"
+        pkgs_base = ports.REPO_ROOT / "irradium" / "packages"
+        if pkgs_base.is_dir():
+            for pkg_archive in pkgs_base.glob(f"*/*/{cat}/{pkg}#*.pkg.tar.*"):
+                if pkg_archive.name.endswith(".sig"):
+                    continue
+                parsed = ports.parse_pkg_filename(pkg_archive.name)
+                if parsed and versions.vercmp(f"{parsed[1]}-{parsed[2]}", up_vr) < 0:
+                    pkg_archive.unlink(missing_ok=True)
+                    pkg_archive.with_name(pkg_archive.name + ".sig").unlink(missing_ok=True)
+
     msg = f"Removed override directory {port_dir.relative_to(ports.ROOT_DIR)}"
     _remove_pkg_from_file(ports.BUILD_TXT, pkg)
     if meta.was_prebuilt:
@@ -858,7 +875,7 @@ def _apply_github_override_actions(items: list[OverrideStatusItem]) -> None:
                     f"- **Condition Met:** {item.reason_detail}\n"
                     f"- **Action:** {retire_msg}\n"
                 )
-                subprocess.run(
+                pr_res = subprocess.run(
                     [
                         "gh",
                         "pr",
@@ -873,7 +890,52 @@ def _apply_github_override_actions(items: list[OverrideStatusItem]) -> None:
                         pr_body,
                     ],
                     cwd=str(ports.ROOT_DIR),
+                    capture_output=True,
+                    text=True,
                     check=False,
+                )
+                if pr_res.returncode == 0:
+                    print(f"==> Opened retire PR for {item.pkg}: {pr_res.stdout.strip()}", file=sys.stderr)
+                else:
+                    err_msg = pr_res.stderr.strip() or pr_res.stdout.strip()
+                    print(
+                        f"WARN: Could not create retire PR for {item.pkg} ({pr_branch}): {err_msg}",
+                        file=sys.stderr,
+                    )
+                    tag = f"[override:retire] {item.pkg}"
+                    issue_check = subprocess.run(
+                        [
+                            "gh",
+                            "issue",
+                            "list",
+                            "--state",
+                            "open",
+                            "--search",
+                            f"{tag} in:title",
+                            "--json",
+                            "number,title",
+                        ],
+                        cwd=str(ports.ROOT_DIR),
+                        capture_output=True,
+                        text=True,
+                        check=False,
+                    )
+                    if issue_check.returncode == 0 and issue_check.stdout.strip() in ("", "[]"):
+                        issue_title = f"{tag}: ready to retire (upstream at {item.upstream_version})"
+                        issue_body = (
+                            f"{pr_body}\n"
+                            f"> **Note:** Branch `{pr_branch}` was pushed, but automatic PR creation failed:\n"
+                            f"> `{err_msg}`\n"
+                        )
+                        subprocess.run(
+                            ["gh", "issue", "create", "--title", issue_title, "--body", issue_body],
+                            cwd=str(ports.ROOT_DIR),
+                            check=False,
+                        )
+            else:
+                print(
+                    f"WARN: Failed to push {pr_branch}: {push_res.stderr.strip()}",
+                    file=sys.stderr,
                 )
             subprocess.run(["git", "-C", str(ports.ROOT_DIR), "checkout", base_branch], check=False)
 
