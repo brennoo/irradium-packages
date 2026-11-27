@@ -5,7 +5,6 @@ d:notqmail
 d:php
 d:php-fpm
 d:php-gd
-d:php-gettext
 d:php-mbstring
 d:php-sockets
 d:php-zip
@@ -94,10 +93,6 @@ f:2e9563e73147712cc7d7ddb8d3567f44:php-gd/.footprint
 f:33ffe7da322048135e0d8e68cd5ac5bb:php-gd/.override
 f:004cd664a0bcf2f804f2f3119f7cd707:php-gd/.signature
 f:2ecd7623a455a5ff037546f5e919d307:php-gd/Pkgfile
-f:e2e3c62f2fbc96685142f523b30794fd:php-gettext/.footprint
-f:f9c1378d546d4130f6341ce8927e80de:php-gettext/.override
-f:29c9aaadf5c9ebc35bc1b29649eb12e1:php-gettext/.signature
-f:91b7ea6727d33c5ead51fd061d46de4b:php-gettext/Pkgfile
 f:8fb061e573ba2bfdfc0bf035bbc6345c:php-mbstring/.footprint
 f:d074ed2c146994ea2c957209c09c4081:php-mbstring/.override
 f:b2abba2941ffeb788aa2d5518afc11de:php-mbstring/.signature
