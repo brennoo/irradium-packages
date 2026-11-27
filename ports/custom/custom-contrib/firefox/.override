@@ -1,8 +1,0 @@
-origin=irradium-contrib/firefox
-origin_commit=40a8df2d4060c961590721b7f2022c4f5e16a4a9
-origin_version=159.0-1
-reason=CVE-2026-120572
-cves=CVE-2026-120572
-retire_when=upstream_version>=160.0
-was_prebuilt=yes
-created=2026-11-17

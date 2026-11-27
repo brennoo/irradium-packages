@@ -1,8 +1,0 @@
-untrusted comment: verify with /etc/ports/custom-contrib.pub
-RWSKHujIjOYbDlKu1VhAz/0RROuWvdBFQH5h+G4G7tEFntMbXU1UdJvFPYbzfam0tOsxm9RDugowlD8f/o+3Z70+002bhuV2cAQ=
-SHA256 (Pkgfile) = 9746f691893fea466d4342abae23d0a88ff3d6ee4140ebff56ab3970f9d50ae0
-SHA256 (.footprint.riscv64) = 51b9751514e994a68a7b3fdb9548bd87586624207f5e6688fa7793d45addb2f9
-SHA256 (firefox-160.0.source.tar.xz) = 2b23d2bf6716ea16b45c10aa5c275c78a1d7ff50ad53150809ab27424c58fd81
-SHA256 (firefox.desktop) = a092fddc62bf5bff0c0f7891f59278463fa9b6ec24e9d811e49cd10b2282bdee
-SHA256 (fix-target-detection.patch) = 33199c6d64a2a775b4ede35aae84b95cef8476e8995a1d1b99eb65efb59008f4
-SHA256 (node-stdout-nonblocking-wrapper) = bb8c503015e49ed1b152225bdc56cf502cd831f35962d113dcbb9121967f3523

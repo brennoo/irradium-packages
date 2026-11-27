@@ -456,12 +456,19 @@ def fetch_mirror_index(
     return found
 
 
+_UPSTREAM_INDEX_CACHE: dict[tuple[str, str], dict[str, tuple[str, str, str]]] = {}
+
+
 def fetch_upstream_irradium_index(
     arch: str = DEFAULT_ARCH,
     distr: str = DEFAULT_DISTR_VERSION,
     timeout: float = 15.0,
 ) -> dict[str, tuple[str, str, str]]:
     """Fetch binary package versions from official upstream Irradium mirrors (dl.irradium.org etc.)."""
+    cache_key = (arch, distr)
+    if cache_key in _UPSTREAM_INDEX_CACHE:
+        return _UPSTREAM_INDEX_CACHE[cache_key]
+
     mirrors = [
         f"https://mirror.accum.se/mirror/irradium.org/packages/{arch}/{distr}",
         f"https://ftp.cc.uoc.gr/mirrors/linux/irradium/packages/{arch}/{distr}",
@@ -508,6 +515,7 @@ def fetch_upstream_irradium_index(
                 if name not in found or versions.vercmp(f"{ver}-{rel}", f"{found[name][0]}-{found[name][1]}") > 0:
                     found[name] = (ver, rel, cat)
 
+    _UPSTREAM_INDEX_CACHE[cache_key] = found
     return found
 
 
@@ -664,21 +672,38 @@ def resolve_ports(
         # When scanning published mirror/repo packages (or for non-built packages), prefer
         # local repo/ then mirror index.html binary filenames. For explicit local build target
         # checks before publishing, fall back to sourcing Pkgfile.
+        def _upstream_has_pkgfile_binary() -> bool:
+            if not pkg_ver or not use_mirror:
+                return not use_mirror
+            up_idx = fetch_upstream_irradium_index(arch=arch or DEFAULT_ARCH, distr=distr)
+            up_info = up_idx.get(entry.name)
+            if not up_info:
+                return False
+            return versions.vercmp(f"{up_info[0]}-{up_info[1]}", f"{pkg_ver}-{pkg_rel}") >= 0
+
         if entry.name in local_repo:
             ver, rel, _ = local_repo[entry.name]
             ver_src = "repo"
-            if source_kind == "build" and pkg_ver and versions.vercmp(f"{pkg_ver}-{pkg_rel}", f"{ver}-{rel}") > 0:
-                ver, rel, ver_src = pkg_ver, pkg_rel, "pkgfile"
+            if pkg_ver and versions.vercmp(f"{pkg_ver}-{pkg_rel}", f"{ver}-{rel}") > 0:
+                if source_kind == "build" or not only_published or (
+                    source_kind == "upstream" and _upstream_has_pkgfile_binary()
+                ):
+                    ver, rel, ver_src = pkg_ver, pkg_rel, "pkgfile"
         elif only_published and entry.name in mirror_repo:
             ver, rel, _ = mirror_repo[entry.name]
             ver_src = "mirror"
-            if source_kind == "build" and pkg_ver and versions.vercmp(f"{pkg_ver}-{pkg_rel}", f"{ver}-{rel}") > 0:
-                ver, rel, ver_src = pkg_ver, pkg_rel, "pkgfile"
+            if pkg_ver and versions.vercmp(f"{pkg_ver}-{pkg_rel}", f"{ver}-{rel}") > 0:
+                if source_kind == "build" or (
+                    source_kind == "upstream" and _upstream_has_pkgfile_binary()
+                ):
+                    ver, rel, ver_src = pkg_ver, pkg_rel, "pkgfile"
         elif source_kind == "build":
             ver, rel, ver_src = pkg_ver, pkg_rel, "pkgfile"
         elif entry.name in mirror_repo:
             ver, rel, _ = mirror_repo[entry.name]
             ver_src = "mirror"
+            if not only_published and pkg_ver and versions.vercmp(f"{pkg_ver}-{pkg_rel}", f"{ver}-{rel}") > 0:
+                ver, rel, ver_src = pkg_ver, pkg_rel, "pkgfile"
         else:
             ver, rel, ver_src = pkg_ver, pkg_rel, "pkgfile"
 

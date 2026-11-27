@@ -255,3 +255,7 @@ zabbix-proxy
 zabbix-server
 zabbix-utils
 zabbix-web-service
+ffmpeg
+php-bcmath
+php-pgsql
+firefox
