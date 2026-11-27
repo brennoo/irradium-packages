@@ -19,7 +19,6 @@ libsndfile
 ffmpeg
 php
 php-bcmath
-php-fpm
 php-gd
 php-gettext
 php-ldap

@@ -3,7 +3,6 @@ d:libsdl
 d:libsndfile
 d:notqmail
 d:php
-d:php-fpm
 d:php-gd
 d:php-gettext
 d:php-mbstring
@@ -85,11 +84,6 @@ f:c66658434026c3eaf557c2b5f3dbc1ff:php/.footprint
 f:9edd67b700ccd4e7b091f16bf02d8e67:php/.override
 f:0d0a196c52fba5cc5033a836f6f942a9:php/.signature
 f:d24a7143878de3306a2d9af67108a001:php/Pkgfile
-f:5fdeeb4e93c5a496b7ece09d4a996d47:php-fpm/.footprint
-f:0115ecaee3dad03dd0d1c30252bf6926:php-fpm/.override
-f:e6b98cbd03dcbe5aea1389d6b32518fd:php-fpm/.signature
-f:43451b28094aff5b927d978d38ac7b78:php-fpm/Pkgfile
-f:5deb10ee675af739c16cafde1f36c2bd:php-fpm/php-fpm
 f:2e9563e73147712cc7d7ddb8d3567f44:php-gd/.footprint
 f:33ffe7da322048135e0d8e68cd5ac5bb:php-gd/.override
 f:004cd664a0bcf2f804f2f3119f7cd707:php-gd/.signature
