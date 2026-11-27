@@ -7,7 +7,6 @@ d:php-fpm
 d:php-gd
 d:php-gettext
 d:php-mbstring
-d:php-sockets
 d:php-zip
 f:d80625ac1f1995026aa77303635fa245:ffmpeg/.footprint
 f:2f7f78629d068a3371d73a5427620d65:ffmpeg/.override
@@ -102,10 +101,6 @@ f:8fb061e573ba2bfdfc0bf035bbc6345c:php-mbstring/.footprint
 f:d074ed2c146994ea2c957209c09c4081:php-mbstring/.override
 f:b2abba2941ffeb788aa2d5518afc11de:php-mbstring/.signature
 f:dff95a5eedfa2815e2d3f0405fd7f3e0:php-mbstring/Pkgfile
-f:64607b7364cee39b22933186b77491a8:php-sockets/.footprint
-f:8e2a28c8665f9c2bb3d0624bb66d3d6b:php-sockets/.override
-f:f787f35da070db58913a4c0f90598e65:php-sockets/.signature
-f:bc746e1a10d10dde7a499e9ee59f7e72:php-sockets/Pkgfile
 f:0fac9b02d2ab26cfd0c61670f2758641:php-zip/.footprint
 f:27a1f92334b265ab6d52ab3b9d6ef1a2:php-zip/.override
 f:a01ff867b77928511a27b228d6fcc441:php-zip/.signature
