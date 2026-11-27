@@ -1,0 +1,18 @@
+builder/vulntool/override.py
+  h_c872c6f1ba48bc 568,571-586,878,893-894,897-939
+builder/vulntool/ports.py
+  h_c872c6f1ba48bc 459-461,468-471,518,675-683,687-691,695-699,705-706
+packages/upstream.txt
+  h_c872c6f1ba48bc 258-261
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "db0f9c7e9fbe69896027b53490bf10b9eee21a42",
+  "prompts": {},
+  "humans": {
+    "h_c872c6f1ba48bc": {
+      "author": "Brenno Oliveira <brenno.oliveira@deliveryhero.com>"
+    }
+  }
+}
